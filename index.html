@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raízes, Luta e Legado: A História dos Negros no Paraná</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --paper-bg: #FAF9F6;
+            --card-bg: #FFFFFF;
+            --ink-black: #111111;
+            --ink-dark: #222222;
+            --ink-muted: #555555;
+            --editorial-red: #8C1D10;
+            --accent-gold: #D4AF37;
+            --border-line: #E0DDD5;
+            --highlight-bg: #F0EFEA;
+            --transition: all 0.25s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--paper-bg);
+            color: var(--ink-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .editorial-quote {
+            font-family: 'Lora', serif;
+        }
+
+        /* Créditos Flutuantes no Canto Inferior Direito */
+        .credits-corner {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--ink-black);
+            color: #FFFFFF;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1000;
+            border: 2px solid var(--accent-gold);
+            backdrop-filter: blur(5px);
+        }
+
+        .credits-corner span {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* Cabeçalho / Masthead de Jornal */
+        header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 20px 25px;
+            text-align: center;
+            border-bottom: 3px double var(--ink-black);
+        }
+
+        .newspaper-meta {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: var(--editorial-red);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        header h1 {
+            font-size: clamp(2.3rem, 4.8vw, 4rem);
+            font-weight: 700;
+            color: var(--ink-black);
+            line-height: 1.15;
+            margin-bottom: 18px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-family: 'Lora', serif;
+            font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+            color: var(--ink-muted);
+            max-width: 900px;
+            margin: 0 auto 25px;
+            font-style: italic;
+        }
+
+        .article-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.82rem;
+            color: var(--ink-muted);
+            border-top: 1px solid var(--border-line);
+            border-bottom: 1px solid var(--border-line);
+            padding: 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        /* Seção Título */
+        .section-header {
+            border-bottom: 2px solid var(--ink-black);
+            margin: 50px 0 30px;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        .section-header h2 {
+            font-size: 1.85rem;
+            color: var(--ink-black);
+            font-weight: 700;
+        }
+
+        .section-header .tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--editorial-red);
+            font-weight: 700;
+        }
+
+        /* Layout de Artigo */
+        .article-block {
+            background-color: var(--card-bg);
+            padding: 45px;
+            border: 1px solid var(--border-line);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            margin-bottom: 40px;
+        }
+
+        .article-block h3 {
+            font-size: 1.65rem;
+            color: var(--ink-black);
+            margin-bottom: 22px;
+            line-height: 1.3;
+        }
+
+        .article-block p {
+            margin-bottom: 20px;
+            font-size: 1.03rem;
+            color: #333333;
+        }
+
+        /* Citação Destaque Editorial */
+        .editorial-quote {
+            border-left: 4px solid var(--editorial-red);
+            padding: 18px 28px;
+            margin: 30px 0;
+            background-color: var(--highlight-bg);
+            font-size: 1.18rem;
+            font-style: italic;
+            color: var(--ink-black);
+        }
+
+        /* Timeline Editorial */
+        .editorial-timeline {
+            margin-top: 35px;
+            border-top: 1px dashed var(--border-line);
+            padding-top: 25px;
+        }
+
+        .timeline-entry {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border-line);
+        }
+
+        .timeline-entry:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-entry .year-label {
+            font-family: 'Lora', serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--editorial-red);
+        }
+
+        .timeline-entry .content h4 {
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            color: var(--ink-black);
+        }
+
+        .timeline-entry .content p {
+            font-size: 0.98rem;
+            color: var(--ink-muted);
+            margin-bottom: 0;
+        }
+
+        /* Grid de Notícias / Mídia */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .news-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-line);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-line);
+            filter: grayscale(15%);
+            transition: var(--transition);
+        }
+
+        .news-card:hover img {
+            filter: grayscale(0%);
+        }
+
+        .news-card-body {
+            padding: 28px;
+            flex-grow: 1;
+        }
+
+        .news-card-body h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--ink-black);
+        }
+
+        .news-card-body p {
+            font-size: 0.95rem;
+            color: var(--ink-muted);
+        }
+
+        /* Demografia / Box informativo */
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .demo-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-line);
+            border-top: 4px solid var(--ink-black);
+            padding: 25px;
+        }
+
+        .demo-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: var(--editorial-red);
+        }
+
+        .demo-card p {
+            font-size: 0.92rem;
+            color: var(--ink-muted);
+        }
+
+        /* Seção de Quiz */
+        .quiz-section {
+            background-color: var(--card-bg);
+            border: 2px solid var(--ink-black);
+            padding: 45px;
+            margin-top: 60px;
+        }
+
+        .quiz-header {
+            text-align: center;
+            border-bottom: 1px solid var(--border-line);
+            padding-bottom: 20px;
+            margin-bottom: 35px;
+        }
+
+        .quiz-header h2 {
+            font-size: 2.1rem;
+            color: var(--ink-black);
+        }
+
+        .quiz-header p {
+            color: var(--ink-muted);
+            font-size: 0.98rem;
+        }
+
+        .quiz-question {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed var(--border-line);
+        }
+
+        .quiz-question h4 {
+            font-size: 1.15rem;
+            color: var(--ink-black);
+            margin-bottom: 15px;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quiz-option {
+            background: var(--paper-bg);
+            border: 1px solid var(--border-line);
+            padding: 14px 20px;
+            cursor: pointer;
+            font-size: 0.98rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .quiz-option:hover {
+            background-color: var(--highlight-bg);
+            border-color: var(--ink-black);
+        }
+
+        .quiz-option input[type="radio"] {
+            accent-color: var(--editorial-red);
+        }
+
+        .quiz-btn {
+            background-color: var(--ink-black);
+            color: white;
+            border: none;
+            padding: 16px 30px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .quiz-btn:hover {
+            background-color: var(--editorial-red);
+        }
+
+        #quiz-result {
+            margin-top: 25px;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Lora', serif;
+            font-size: 1.2rem;
+            display: none;
+            border: 1px solid var(--ink-black);
+        }
+
+        /* Fontes e Referências */
+        .sources-section {
+            background-color: var(--highlight-bg);
+            border: 1px solid var(--border-line);
+            padding: 35px;
+            margin-top: 50px;
+            font-size: 0.92rem;
+        }
+
+        .sources-section h4 {
+            font-size: 1.15rem;
+            margin-bottom: 18px;
+            color: var(--ink-black);
+        }
+
+        .sources-section ul {
+            list-style: none;
+        }
+
+        .sources-section li {
+            margin-bottom: 12px;
+            color: var(--ink-muted);
+        }
+
+        .sources-section a {
+            color: var(--editorial-red);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .timeline-entry {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+            .article-block {
+                padding: 25px;
+            }
+            .credits-corner {
+                bottom: 10px;
+                right: 10px;
+                font-size: 0.75rem;
+                padding: 8px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="credits-corner">
+        Feito por: <span>Esthefany, Maiza, Lais, Maria Clara e Joelma</span> | <span>1° A</span>
+    </div>
+
+    <header>
+        <div class="newspaper-meta">Edição Especial • Dossiê Histórico e Cultural Paranaense</div>
+        <h1>RAÍZES, LUTA E LEGADO</h1>
+        <p class="subtitle">Uma investigação historiográfica profunda sobre a presença, as resistências, as lutas por direitos civis e o protagonismo da população negra na formação social e econômica do Paraná.</p>
+        
+        <div class="article-info">
+            <span><i class="far fa-newspaper"></i> Reportagem Especial</span>
+            <span><i class="far fa-calendar-alt"></i> Pesquisa & Documentação Histórica</span>
+            <span><i class="fas fa-check-double"></i> Base de Dados: Arquivo Público do PR</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="section-header">
+            <h2>01. Contexto Histórico & Mito do Paranismo</h2>
+            <span class="tag">Historiografia</span>
+        </div>
+
+        <article class="article-block">
+            <h3>O Apagamento Sistemático e a Realidade dos Arquivos Provinciais</h3>
+            <p>Durante mais de um século, a historiografia oficial do estado e as elites políticas locais empenharam-se na construção e difusão de uma narrativa de que o Paraná teria sido povoado quase que exclusivamente pela imigração europeia (italianos, poloneses, ucranianos, alemães e bálticos). Esse movimento ideológico e político-cultural, batizado de <strong>Paranismo</strong>, buscou deliberadamente silenciar e invisibilizar a matriz afro-brasileira para projetar o estado como uma "ilha europeia" no Sul do país.</p>
+
+            <div class="editorial-quote">
+                "A documentação histórica e os censos provinciais revelam a verdade: por ocasião da emancipação política do Paraná em 1853, cerca de 40% da população paranaense era composta por negros e pardos, entre escravizados e libertos."
+            </div>
+
+            <p>A força de trabalho negra foi o pilar invisibilizado que ergueu caminhos, abriu estradas e florestas, construiu edifícios públicos e movimentou a economia do ouro, do tropeirismo, da agricultura e da erva-mate. A presença negra não foi marginal ou secundária; ela esteve no centro da estruturação do território paranaense.</p>
+
+            <div class="editorial-timeline">
+                <div class="timeline-entry">
+                    <div class="year-label">Séc. XVII e XVIII</div>
+                    <div class="content">
+                        <h4>Ciclo do Ouro e Tropeirismo</h4>
+                        <p>A exploração de mineração de ouro de aluvião nas regiões de Curitiba, Antonina e Morretes dependeu brutalmente da mão de obra africana escravizada. Posteriormente, no sistema do tropeirismo, negros escravizados e libertos atuaram como carreteiros, pastores, criadores e peças fundamentais na logística comercial que conectava o Sul ao resto do Brasil.</p>
+                    </div>
+                </div>
+                <div class="timeline-entry">
+                    <div class="year-label">Século XIX</div>
+                    <div class="content">
+                        <h4>O Ciclo da Erva-Mate</h4>
+                        <p>Com a explosão econômica da erva-mate ("o ouro verde paranaense"), o trabalho escravizado sustentou o corte, o transporte e o beneficiamento nos engenhos dos Campos Gerais, Curitiba e Litoral. A riqueza gerada por esse ciclo financiou, mais tarde, a infraestrutura que recebeu as levas de imigrantes europeus.</p>
+                    </div>
+                </div>
+                <div class="timeline-entry">
+                    <div class="year-label">Pós-Abolição (1888)</div>
+                    <div class="content">
+                        <h4>Abolição Excludente e Clubes Sociais Negros</h4>
+                        <p>Após 1888, o Estado brasileiro e as autoridades locais não ofereceram terras, escolas ou integração no mercado de trabalho aos libertos, favorecendo a imigração europeia financiada sob ideais de "embranquecimento racial". Em resposta, a população negra organizou sua própria rede de solidariedade, criando jornais da imprensa negra e os **Clubes Sociais Negros**, como a histórica **Sociedade Operária Beneficente 13 de Maio** em Curitiba.</p>
+                    </div>
+                </div>
+                <div class="timeline-entry">
+                    <div class="year-label">1964 – 1985</div>
+                    <div class="content">
+                        <h4>Repressão e Silenciamento na Ditadura Militar</h4>
+                        <p>Durante o regime militar, pautas e reivindicações raciais foram duramente vigiadas e reprimidas sob a falsa tese da "democracia racial". Lideranças e coletivos negros paranaenses enfrentaram monitoramento constante por denunciarem as disparidades raciais e sociais no estado.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <div class="section-header">
+            <h2>02. Direitos Civis & Movimentos Organizados</h2>
+            <span class="tag">Resistência</span>
+        </div>
+
+        <article class="article-block">
+            <h3>A Articulação Antirracista Contemporânea no Paraná</h3>
+            <p>A luta dos negros paranaenses por direitos civis combina uma sólida tradição comunitária com a chegada tardia, porém extremamente combativa, de frentes organizadas de militância e ativismo universitário.</p>
+            <p>O rompimento com o silêncio histórico deu-se através da denúncia contínua do racismo estrutural e da exigência de políticas públicas focadas em educação, demarcação de terras quilombolas e acesso democrático às instituições de poder.</p>
+
+            <div class="editorial-timeline">
+                <div class="timeline-entry">
+                    <div class="year-label">Década de 1990 (1996)</div>
+                    <div class="content">
+                        <h4>A Estruturação do Movimento Negro Unificado (MNU)</h4>
+                        <p>O Movimento Negro Unificado (MNU) estabelece uma estrutura formal e organizada no Paraná a partir de 1996, tornando-se o principal motor de denúncias contra a violência institucional, discriminação racial e desigualdade econômica no estado.</p>
+                    </div>
+                </div>
+                <div class="timeline-entry">
+                    <div class="year-label">Anos 2000 – Presente</div>
+                    <div class="content">
+                        <h4>Ativismo Universitário e Coletivos de Aquilombamento</h4>
+                        <p>Estudantes negros nas universidades públicas impulsionam o debate através de coletivos como o **RAP (Resistência Ativa Preta)** na UFPR, além de organizações de mulheres negras no interior (como em Maringá e Londrina), garantindo a aplicação e permanência das cotas raciais.</p>
+                    </div>
+                </div>
+                <div class="timeline-entry">
+                    <div class="year-label">Políticas Públicas</div>
+                    <div class="content">
+                        <h4>Conquistas Institucionais e CONSEPIR</h4>
+                        <p>A mobilização social pressionou o poder público a instituir instâncias oficiais de reparação, resultando na criação do **Conselho Estadual de Promoção da Igualdade Racial (CONSEPIR)** e na elaboração de planos estaduais para o combate ao racismo.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <div class="section-header">
+            <h2>03. Mapeamento Demográfico Atual</h2>
+            <span class="tag">Dados & Território</span>
+        </div>
+
+        <div class="demo-grid" style="margin-bottom: 40px;">
+            <div class="demo-card">
+                <h4>Região Metropolitana de Curitiba</h4>
+                <p>Concentra a maior população negra absoluta do estado em decorrência das migrações internas, com expressiva presença em bairros periféricos e municípios como São José dos Pinhais, Colombo e Fazenda Rio Grande.</p>
+            </div>
+            <div class="demo-card">
+                <h4>Litoral Paranaense (Paranaguá/Antonina)</h4>
+                <p>Território de povoamento afro-brasileiro ancestral, abrigando comunidades caiçaras tradicionais e remanescentes de quilombos enraizados nos ecossistemas litorâneos e ilhas do estado.</p>
+            </div>
+            <div class="demo-card">
+                <h4>Norte e Noroeste (Londrina/Maringá)</h4>
+                <p>Regiões marcadas pela expansão agrícola do século XX, recebendo levas de migrantes de São Paulo e Minas Gerais que moldaram profundamente a composição demográfica urbana e rural.</p>
+            </div>
+            <div class="demo-card">
+                <h4>Vale do Ribeira (Adrianópolis/Cerro Azul)</h4>
+                <p>Principal polo de concentração de **Comunidades Quilombolas Tradicionais**, constituídas historicamente por populações negras que buscaram refúgio e preservaram sua soberania e cultura em áreas preservadas.</p>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>04. Cultura, Identidade e Pioneirismo</h2>
+            <span class="tag">Legado</span>
+        </div>
+
+        <div class="news-grid">
+            <div class="news-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Negro_fandango_scene.jpg" alt="Fandango Caiçara">
+                <div class="news-card-body">
+                    <h3>Manifestações Culturais</h3>
+                    <p>O **Fandango Caiçara** no litoral, as rodas de capoeira regional e angola, a literatura afro-paranaense e as tradições de terreiro são expressões vivas da resistência e da ancestralidade negra no estado.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="https://cdn0.umcomo.com.br/pt/posts/2/3/3/como_fazer_barreado_simples_7332_orig.jpg" alt="Barreado">
+                <div class="news-card-body">
+                    <h3>Gastronomia Típica</h3>
+                    <p>O prato símbolo da culinária paranaense, o <strong>Barreado</strong>, carrega saberes e técnicas ancestrais de cozimento lento em recipientes de barro vedados, frutos do trabalho de cozinheiras negras e indígenas do litoral.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="https://i0.wp.com/almapreta.com.br/images/2026/04/Eu-tenho-um-sonho_-a-luta-anticapitalista-e-antirracista-de-Martin-Luther-King.webp?fit=1040%2C780&ssl=1" alt="Direitos Civis">
+                <div class="news-card-body">
+                    <h3>Grandes Personalidades</h3>
+                    <p>Destaque para <strong>Enedina Alves Marques</strong> (primeira engenheira negra do Brasil em 1945), o médico e vereador <strong>Antenor Pamphilo dos Santos</strong> e o médico humanitário <strong>Dr. Justiniano Clímaco da Silva</strong>.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-section">
+            <div class="quiz-header">
+                <h2><i class="fas fa-pen-nib"></i> Quiz de Fixação Histórica</h2>
+                <p>Teste o seu aprendizado respondendo às questões elaboradas a partir do conteúdo do dossiê.</p>
+            </div>
+
+            <form id="quiz-form">
+                <div class="quiz-question">
+                    <h4>1. Qual era a porcentagem aproximada de negros e pardos no Paraná por ocasião da emancipação política de 1853?</h4>
+                    <div class="quiz-options">
+                        <label class="quiz-option"><input type="radio" name="q1" value="a"> A) Aproximadamente 5%</label>
+                        <label class="quiz-option"><input type="radio" name="q1" value="b"> B) Cerca de 40%</label>
+                        <label class="quiz-option"><input type="radio" name="q1" value="c"> C) Mais de 80%</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>2. Como ficou conhecido o movimento ideológico das elites que buscou inviabilizar a herança afro-brasileira no estado?</h4>
+                    <div class="quiz-options">
+                        <label class="quiz-option"><input type="radio" name="q2" value="a"> A) Paranismo</label>
+                        <label class="quiz-option"><input type="radio" name="q2" value="b"> B) Iluminismo</label>
+                        <label class="quiz-option"><input type="radio" name="q2" value="c"> C) Modernismo</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>3. Quem foi Enedina Alves Marques, figura histórica de destaque no Paraná?</h4>
+                    <div class="quiz-options">
+                        <label class="quiz-option"><input type="radio" name="q3" value="a"> A) Primeira mulher vereadora de Curitiba</label>
+                        <label class="quiz-option"><input type="radio" name="q3" value="b"> B) Primeira mulher negra engenheira do Brasil (UFPR, 1945)</label>
+                        <label class="quiz-option"><input type="radio" name="q3" value="c"> C) Fundadora do Movimento Negro Unificado</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>4. Em que ano o Movimento Negro Unificado (MNU) se estruturou formalmente no estado do Paraná?</h4>
+                    <div class="quiz-options">
+                        <label class="quiz-option"><input type="radio" name="q4" value="a"> A) 1996</label>
+                        <label class="quiz-option"><input type="radio" name="q4" value="b"> B) 1930</label>
+                        <label class="quiz-option"><input type="radio" name="q4" value="c"> C) 2015</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>5. Qual importante conselho estadual foi criado no Paraná para a promoção de políticas de igualdade racial?</h4>
+                    <div class="quiz-options">
+                        <label class="quiz-option"><input type="radio" name="q5" value="a"> A) CONSEPIR</label>
+                        <label class="quiz-option"><input type="radio" name="q5" value="b"> B) CONSEMA</label>
+                        <label class="quiz-option"><input type="radio" name="q5" value="c"> C) FUNAI</label>
+                    </div>
+                </div>
+
+                <button type="button" class="quiz-btn" onclick="corrigirQuiz()">Enviar Respostas</button>
+            </form>
+
+            <div id="quiz-result"></div>
+        </div>
+
+        <div class="sources-section">
+            <h4><i class="fas fa-book"></i> Fontes & Documentos do Arquivo Público</h4>
+            <ul>
+                <li>• <strong>Arquivo Público do Paraná — História, Quilombos e Quilombolas:</strong> <a href="https://www.administracao.pr.gov.br/ArquivoPublico/Pagina/Historia-Quilombos-e-Quilombolas" target="_blank">Acesse a documentação territorial oficial</a>.</li>
+                <li>• <strong>Arquivo Público do Paraná — Dia da Consciência Negra:</strong> <a href="https://www.administracao.pr.gov.br/ArquivoPublico/Noticia/Dia-da-Consciencia-Negra-Documentos-Historicos-do-Parana-Revelam-Luta-pela" target="_blank">Leia a pesquisa sobre os acervos históricos paranaenses</a>.</li>
+                <li>• <strong>IBGE & Fundação Cultural Palmares:</strong> Censos demográficos, dados de raça/cor e mapeamento de quilombos.</li>
+                <li>• <strong>Sociedade Operária Beneficente 13 de Maio, MNU-PR e Coletivo RAP (UFPR):</strong> Registros do associativismo, da imprensa negra e da luta por cotas raciais.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        function corrigirQuiz() {
+            const respostasCorretas = {
+                q1: 'b',
+                q2: 'a',
+                q3: 'b',
+                q4: 'a',
+                q5: 'a'
+            };
+
+            let pontos = 0;
+            const total = 5;
+
+            for (let i = 1; i <= total; i++) {
+                const radios = document.getElementsByName('q' + i);
+                for (let radio of radios) {
+                    if (radio.checked && radio.value === respostasCorretas['q' + i]) {
+                        pontos++;
+                    }
+                }
+            }
+
+            const resultadoDiv = document.getElementById('quiz-result');
+            resultadoDiv.style.display = 'block';
+
+            if (pontos === total) {
+                resultadoDiv.style.backgroundColor = '#e6f4ea';
+                resultadoDiv.style.color = '#137333';
+                resultadoDiv.innerHTML = `<strong>Excelente!</strong> Você acertou ${pontos} de ${total} perguntas. Demonstrou domínio completo do dossiê histórico!`;
+            } else if (pontos >= 3) {
+                resultadoDiv.style.backgroundColor = '#fef7e0';
+                resultadoDiv.style.color = '#b06000';
+                resultadoDiv.innerHTML = `<strong>Muito Bom!</strong> Você acertou ${pontos} de ${total} perguntas. Revise alguns tópicos para fixar ainda mais!`;
+            } else {
+                resultadoDiv.style.backgroundColor = '#fce8e6';
+                resultadoDiv.style.color = '#c5221f';
+                resultadoDiv.innerHTML = `Você acertou ${pontos} de ${total} perguntas. Releia o artigo e tente novamente!`;
+            }
+        }
+    </script>
+</body>
+</html>
